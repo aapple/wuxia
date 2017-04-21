@@ -18,8 +18,8 @@ public class SpiderStarter extends SpringGeccoEngine {
                 .debug(false)
                 .pipelineFactory(springPipelineFactory)
                 //开始抓取的页面地址
-//                .start("http://www.wuxiaworld.com")
-                .start("http://www.wuxiaworld.com/cdindex-html/book-1-chapter-1/")
+                .start("http://www.wuxiaworld.com")
+//                .start("http://www.wuxiaworld.com/cdindex-html/book-1-chapter-1/")
                 //开启几个爬虫线程
                 .thread(10)
                 //单个爬虫每次抓取完一个请求后的间隔时间

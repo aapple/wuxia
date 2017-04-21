@@ -13,7 +13,15 @@ public class SpiderService {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
-    public void create(String name, String son_href) {
-        jdbcTemplate.update("insert into spider_home(name, son_href) values(?, ?)", name, son_href);
+    public void saveBook(String bookName, String bookUrl) {
+        jdbcTemplate.update("insert into spider_book(book_name, book_url) values(?, ?)", bookName, bookUrl);
+    }
+
+    public void saveChapter(String chapterName, String chapterUrl, String bookUrl) {
+        jdbcTemplate.update("insert into spider_chapter(chapter_name, chapter_url, book_url) values(?, ?, ?)", chapterName, chapterUrl, bookUrl);
+    }
+
+    public void saveChapterText(String chapterText, String chapterUrl) {
+        jdbcTemplate.update("insert into spider_chapter_text(chapter_text, chapter_url) values(?, ?)", chapterText, chapterUrl);
     }
 }

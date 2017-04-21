@@ -17,6 +17,6 @@ public class ChapterPipeline implements Pipeline<Chapter>{
     @Override
     public void process(Chapter chapter) {
         String body = chapter.getBody();
-        spiderService.create("a","b");
+        spiderService.saveChapterText(body, chapter.getRequest().getUrl());
     }
 }

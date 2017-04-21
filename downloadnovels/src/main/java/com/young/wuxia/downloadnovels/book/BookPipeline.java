@@ -3,6 +3,8 @@ package com.young.wuxia.downloadnovels.book;
 import com.geccocrawler.gecco.pipeline.Pipeline;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.scheduler.SchedulerContext;
+import com.young.wuxia.downloadnovels.service.SpiderService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +15,9 @@ import java.util.List;
 @Service("bookPipeline")
 public class BookPipeline implements Pipeline<CDBook>{
 
+    @Autowired
+    private SpiderService spiderService;
+
     @Override
     public void process(CDBook book) {
         List<ChapterNode> chapterNodes = book.getChapterNodes();
@@ -20,6 +25,7 @@ public class BookPipeline implements Pipeline<CDBook>{
             String name = chapterNode.getName();
             String href = chapterNode.getHref();
             HttpRequest currRequest = book.getRequest();
+            spiderService.saveChapter(name, href, currRequest.getUrl());
             SchedulerContext.into(currRequest.subRequest(href));
         }
     }

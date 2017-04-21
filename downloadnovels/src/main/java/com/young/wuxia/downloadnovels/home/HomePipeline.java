@@ -25,7 +25,7 @@ public class HomePipeline implements Pipeline<Home>{
         for(BookNode bookNode : bookNodes) {
             String name = bookNode.getName();
             String href = bookNode.getHref();
-            spiderService.create(name, href);
+            spiderService.saveBook(name,href);
             HttpRequest currRequest = home.getRequest();
             SchedulerContext.into(currRequest.subRequest(href));
         }
