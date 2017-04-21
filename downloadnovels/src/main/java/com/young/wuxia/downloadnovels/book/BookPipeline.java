@@ -1,16 +1,16 @@
 package com.young.wuxia.downloadnovels.book;
 
-import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.scheduler.SchedulerContext;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 /**
  * Created by bin.yao on 2017/4/20.
  */
-@PipelineName("bookPipeline")
+@Service("bookPipeline")
 public class BookPipeline implements Pipeline<CDBook>{
 
     @Override

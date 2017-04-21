@@ -1,6 +1,5 @@
 package com.young.wuxia.downloadnovels.home;
 
-import com.geccocrawler.gecco.annotation.PipelineName;
 import com.geccocrawler.gecco.pipeline.Pipeline;
 import com.geccocrawler.gecco.request.HttpRequest;
 import com.geccocrawler.gecco.scheduler.SchedulerContext;
@@ -13,8 +12,7 @@ import java.util.List;
 /**
  * Created by bin.yao on 2017/4/20.
  */
-@PipelineName("homePipeline")
-@Service
+@Service("homePipeline")
 public class HomePipeline implements Pipeline<Home>{
 
     @Autowired
