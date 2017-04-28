@@ -1,6 +1,5 @@
 package com.young.wuxia.server.controller;
 
-import com.young.wuxia.server.domain.City;
 import com.young.wuxia.server.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +18,8 @@ public class CityController {
     private CityService cityService;
 
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public City getCity(@PathVariable String name){
-        return cityService.findByName(name);
+    public ResponseMessage getCity(@PathVariable String name){
+
+        return ResponseMessage.ok(cityService.findByName(name));
     }
 }
